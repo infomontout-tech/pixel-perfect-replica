@@ -1,68 +1,85 @@
-import { Code, ShoppingCart, Sparkles, Check } from 'lucide-react';
+import { Code, ShoppingCart, Lightbulb, ArrowUpRight } from 'lucide-react';
 
 const services = [
   {
     icon: Code,
     title: "Sistemas SaaS",
-    description: "CRM, dashboards, herramientas de productividad y más. Plataformas escalables diseñadas para crecer con tu startup.",
-    features: ["Arquitectura escalable", "APIs RESTful", "Autenticación segura", "Panel de administración"]
+    description: "CRM, dashboards, herramientas de productividad. Plataformas escalables diseñadas para crecer con tu negocio.",
+    features: ["Arquitectura escalable", "APIs RESTful", "Autenticación segura", "Panel de administración"],
+    accent: "primary"
   },
   {
     icon: ShoppingCart,
     title: "E-Commerce",
-    description: "Tiendas online completas con pasarela de pagos, gestión de inventario y análisis en tiempo real.",
-    features: ["Pasarela de pagos", "Gestión de productos", "Carrito optimizado", "Panel de ventas"]
+    description: "Tiendas online con pasarela de pagos, gestión de inventario y analytics en tiempo real.",
+    features: ["Pasarela de pagos", "Gestión de productos", "Carrito optimizado", "Dashboard de ventas"],
+    accent: "warm"
   },
   {
-    icon: Sparkles,
-    title: "Tu Idea a Realidad",
+    icon: Lightbulb,
+    title: "Tu idea a código",
     description: "¿Tienes una idea? La convertimos en un producto digital funcional. Desde MVP hasta producto completo.",
-    features: ["Desarrollo ágil", "Prototipado rápido", "Iteración continua", "Consultoría técnica"]
+    features: ["Prototipado rápido", "Desarrollo ágil", "Iteración continua", "Consultoría técnica"],
+    accent: "coral"
   }
 ];
 
 const Services = () => {
   return (
-    <section id="servicios" className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8 bg-surface/30">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="badge-primary mb-4">
-            NUESTROS SERVICIOS
+    <section id="servicios" className="relative py-32 px-6 bg-surface-elevated/30">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-20">
+          <div className="max-w-2xl">
+            <div className="tag mb-4">Servicios</div>
+            <h2 className="heading-section">
+              Lo que <span className="text-primary">desarrollamos</span>
+            </h2>
           </div>
-          <h2 className="section-title">
-            Lo Que
-            <span className="block gradient-text-primary">
-              Desarrollamos
-            </span>
-          </h2>
-          <p className="section-subtitle">
-            Desde MVPs hasta plataformas completas. Tu idea, nuestra ejecución.
+          <p className="text-muted-foreground max-w-md lg:text-right">
+            Desde MVPs hasta plataformas completas. Tu visión, nuestra experiencia técnica.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        {/* Services */}
+        <div className="space-y-4">
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group relative glass-card p-8 transition-all duration-300 hover:border-primary/50"
+              className="card-interactive p-8 group"
             >
-              <div className="absolute top-0 left-0 w-full h-1 gradient-primary rounded-t-2xl scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-              
-              <div className="inline-flex p-4 bg-primary/20 rounded-2xl mb-6 text-primary">
-                <service.icon className="w-8 h-8" />
+              <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+                {/* Icon & Title */}
+                <div className="flex items-center gap-6 lg:w-1/3">
+                  <div className={`icon-container${service.accent !== 'primary' ? `-${service.accent}` : ''}`}>
+                    <service.icon className={`w-6 h-6 ${
+                      service.accent === 'primary' ? 'text-primary' : 
+                      service.accent === 'warm' ? 'text-brand-warm' : 'text-brand-coral'
+                    }`} />
+                  </div>
+                  <h3 className="text-2xl font-semibold">{service.title}</h3>
+                </div>
+
+                {/* Description */}
+                <div className="lg:w-1/3">
+                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                </div>
+
+                {/* Features */}
+                <div className="lg:w-1/3 flex flex-wrap gap-2">
+                  {service.features.map((feature, idx) => (
+                    <span 
+                      key={idx} 
+                      className="text-xs px-3 py-1.5 bg-muted rounded-full text-muted-foreground"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Arrow */}
+                <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity hidden lg:block" />
               </div>
-
-              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
-
-              <ul className="space-y-3">
-                {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-muted-foreground">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>
