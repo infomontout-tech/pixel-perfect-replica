@@ -1,103 +1,93 @@
-import { ArrowRight, Rocket, Zap, Gift, Shield } from 'lucide-react';
-
-const stats = [
-  { number: "7", label: "Días de Garantía" },
-  { number: "100%", label: "Código Escalable" },
-  { number: "24/7", label: "Soporte Continuo" }
-];
-
-const features = [
-  {
-    icon: Zap,
-    title: "Desarrollo Rápido",
-    description: "Tu proyecto listo en 7 días garantizados",
-    gradientClass: "gradient-cyan-blue"
-  },
-  {
-    icon: Gift,
-    title: "Dominio Incluido",
-    description: "Regalo: Tu dominio .com personalizado",
-    gradientClass: "gradient-purple-pink"
-  },
-  {
-    icon: Shield,
-    title: "Precio Especial",
-    description: "Desde $3,900 MXN - Promoción limitada",
-    gradientClass: "gradient-orange-red"
-  }
-];
+import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Hero Text */}
-          <div className="relative z-10">
-            <div className="badge-primary mb-6">
-              <Rocket className="w-4 h-4" />
-              Especializados en Startups
+    <section className="relative min-h-screen flex items-center pt-20 pb-20 px-6">
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+          {/* Left - Main Content */}
+          <div className="space-y-10">
+            <div className="space-y-6">
+              <div className="tag-outlined">
+                Desarrollo web para startups
+              </div>
+              
+              <h1 className="heading-display text-balance">
+                Tu idea.
+                <br />
+                <span className="text-primary">Nuestra ejecución.</span>
+              </h1>
+              
+              <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
+                Transformamos conceptos en productos digitales funcionales. 
+                SaaS, CRM, e-commerce — entregado en 7 días.
+              </p>
             </div>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black leading-tight mb-6">
-              Tu Idea a
-              <span className="block gradient-text-hero">
-                Realidad Digital
-              </span>
-            </h1>
-            
-            <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-xl">
-              Creamos sistemas SaaS, CRMs, dashboards, e-commerce y cualquier idea que tengas. 
-              <span className="text-primary font-semibold"> En solo 7 días.</span>
-            </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row gap-4">
               <a href="#contacto" className="btn-primary group">
-                Iniciar Proyecto
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                Comenzar proyecto
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="#servicios" className="btn-secondary">
-                Ver Servicios
+              <a href="#servicios" className="btn-ghost">
+                Ver servicios
               </a>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 sm:gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center sm:text-left">
-                  <div className="text-3xl sm:text-4xl font-black gradient-text-primary mb-1">
-                    {stat.number}
-                  </div>
-                  <div className="text-xs sm:text-sm text-muted-foreground font-medium">
-                    {stat.label}
-                  </div>
+            <div className="pt-10 border-t border-border">
+              <div className="grid grid-cols-3 gap-8">
+                <div>
+                  <div className="stat-number">7</div>
+                  <div className="text-sm text-muted-foreground mt-1">días de entrega</div>
                 </div>
-              ))}
+                <div>
+                  <div className="stat-number">100%</div>
+                  <div className="text-sm text-muted-foreground mt-1">código tuyo</div>
+                </div>
+                <div>
+                  <div className="stat-number">24/7</div>
+                  <div className="text-sm text-muted-foreground mt-1">soporte</div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Hero Card */}
-          <div className="relative z-10">
-            <div className="relative glass-card p-8 rounded-3xl shadow-2xl">
-              <div className="glow-blur" />
-              
-              <div className="relative space-y-6">
-                {features.map((feature, index) => (
-                  <div key={index}>
-                    <div className="flex items-start gap-4">
-                      <div className={`p-3 ${feature.gradientClass} rounded-xl`}>
-                        <feature.icon className="w-6 h-6 text-foreground" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                        <p className="text-muted-foreground">{feature.description}</p>
-                      </div>
-                    </div>
-                    {index < features.length - 1 && (
-                      <div className="h-px bg-border mt-6" />
-                    )}
+          {/* Right - Visual */}
+          <div className="relative hidden lg:block">
+            <div className="relative">
+              {/* Main card */}
+              <div className="card-elevated p-8 space-y-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full bg-brand-coral" />
+                    <div className="w-3 h-3 rounded-full bg-brand-warm" />
+                    <div className="w-3 h-3 rounded-full bg-primary" />
                   </div>
-                ))}
+                  <span className="text-xs text-muted-foreground">montout.dev</span>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="h-4 bg-muted rounded w-3/4" />
+                  <div className="h-4 bg-muted rounded w-1/2" />
+                  <div className="h-32 bg-muted/50 rounded-lg mt-6" />
+                </div>
+                
+                <div className="flex gap-3 pt-4">
+                  <div className="h-10 bg-primary/20 rounded-lg flex-1" />
+                  <div className="h-10 bg-muted rounded-lg flex-1" />
+                </div>
+              </div>
+
+              {/* Floating accent card */}
+              <div className="absolute -bottom-6 -left-6 card-elevated p-4 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                  <span className="text-primary text-lg">✓</span>
+                </div>
+                <div>
+                  <div className="text-sm font-medium">Proyecto enviado</div>
+                  <div className="text-xs text-muted-foreground">hace 2 minutos</div>
+                </div>
               </div>
             </div>
           </div>

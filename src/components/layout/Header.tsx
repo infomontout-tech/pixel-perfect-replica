@@ -7,7 +7,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -21,55 +21,58 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-slate-900/80 backdrop-blur-lg border-b border-slate-800' : ''
+      className={`fixed w-full top-0 z-50 transition-all duration-500 ${
+        scrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : ''
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 sm:h-20">
-          <div className="text-2xl sm:text-3xl font-black gradient-text-primary">
-            MONTOUT
-          </div>
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex justify-between items-center h-20">
+          <a href="/" className="text-xl font-bold tracking-tight">
+            montout<span className="text-primary">.</span>
+          </a>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
               <a 
                 key={link.href}
                 href={link.href} 
-                className="text-slate-300 hover:text-cyan-400 transition-colors font-medium"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors link-underline py-1"
               >
                 {link.label}
               </a>
             ))}
+          </nav>
+
+          <div className="hidden md:block">
             <a 
               href="#contacto" 
-              className="px-6 py-2.5 bg-gradient-primary rounded-full font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all hover:scale-105"
+              className="btn-primary text-sm px-6 py-3"
             >
-              Contactar
+              Iniciar proyecto
             </a>
-          </nav>
+          </div>
 
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-slate-300 hover:text-cyan-400"
+            className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-slate-900/95 backdrop-blur-lg border-t border-slate-800">
-          <nav className="flex flex-col gap-4 p-6">
+        <div className="md:hidden bg-background border-t border-border">
+          <nav className="flex flex-col p-6 gap-1">
             {navLinks.map((link) => (
               <a 
                 key={link.href}
                 href={link.href} 
-                className="text-slate-300 hover:text-cyan-400 transition-colors font-medium" 
+                className="text-muted-foreground hover:text-foreground transition-colors py-3 border-b border-border" 
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
@@ -77,10 +80,10 @@ const Header = () => {
             ))}
             <a 
               href="#contacto" 
-              className="px-6 py-2.5 bg-gradient-primary rounded-full font-semibold text-center"
+              className="btn-primary text-sm mt-4 text-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contactar
+              Iniciar proyecto
             </a>
           </nav>
         </div>

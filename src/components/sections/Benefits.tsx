@@ -1,58 +1,65 @@
-import { Zap, Gift, Shield } from 'lucide-react';
+import { Clock, Gift, Banknote } from 'lucide-react';
 
 const benefits = [
   {
-    icon: Zap,
-    title: "Garantía 7 Días",
-    description: "Entrega en tiempo récord. Tu proyecto funcional en una semana.",
-    gradientClass: "gradient-cyan-blue"
+    icon: Clock,
+    number: "7",
+    label: "días",
+    title: "Entrega garantizada",
+    description: "Tu proyecto funcional en una semana. Sin excusas, sin demoras.",
   },
   {
     icon: Gift,
-    title: "Dominio Gratis",
+    number: "1",
+    label: "dominio",
+    title: "Dominio gratis",
     description: "Te regalamos el dominio .com para tu proyecto. Sin costos ocultos.",
-    gradientClass: "gradient-purple-pink"
   },
   {
-    icon: Shield,
-    title: "Desde $3,900",
-    description: "Precio promocional increíble. Calidad profesional al alcance de tu startup.",
-    gradientClass: "gradient-orange-red"
+    icon: Banknote,
+    number: "$3.9K",
+    label: "MXN",
+    title: "Precio accesible",
+    description: "Calidad profesional al alcance de tu startup. Precio fijo, sin sorpresas.",
   }
 ];
 
 const Benefits = () => {
   return (
-    <section id="beneficios" className="relative py-20 sm:py-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="badge-primary mb-4">
-            ¿POR QUÉ MONTOUT?
-          </div>
-          <h2 className="section-title">
-            Beneficios que
-            <span className="block gradient-text-primary">
-              Nos Diferencian
-            </span>
+    <section id="beneficios" className="relative py-32 px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="max-w-2xl mb-20">
+          <div className="tag mb-4">Beneficios</div>
+          <h2 className="heading-section mb-6">
+            Por qué startups
+            <br />
+            eligen <span className="text-primary">Montout</span>
           </h2>
-          <p className="section-subtitle">
-            Calidad profesional, velocidad récord y precios accesibles para startups
+          <p className="text-muted-foreground text-lg">
+            Entendemos las necesidades de las startups: velocidad, calidad y presupuesto ajustado.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Benefits Grid */}
+        <div className="grid md:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="group relative glass-card-hover p-8"
+              className="card-interactive p-8 group"
             >
-              <div className="relative">
-                <div className={`inline-flex p-4 ${benefit.gradientClass} rounded-2xl mb-6`}>
-                  <benefit.icon className="w-10 h-10 text-foreground" />
+              <div className="flex items-start justify-between mb-8">
+                <div className="icon-container text-primary">
+                  <benefit.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{benefit.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
+                <div className="text-right">
+                  <span className="text-4xl font-black">{benefit.number}</span>
+                  <span className="text-sm text-muted-foreground block">{benefit.label}</span>
+                </div>
               </div>
+              
+              <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{benefit.description}</p>
             </div>
           ))}
         </div>

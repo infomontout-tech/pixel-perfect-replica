@@ -9,13 +9,13 @@ import CTA from '@/components/sections/CTA';
 
 const Index = () => {
   return (
-    <div className="min-h-screen gradient-body overflow-x-hidden">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <BackgroundEffects />
       <Header />
       <main>
         <Hero />
-        <Benefits />
         <Services />
+        <Benefits />
         <Projects />
         <CTA />
       </main>
