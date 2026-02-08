@@ -142,7 +142,7 @@ const Hero = () => {
           </div>
 
           {/* Right - Visual Experience */}
-          <div className="relative hidden lg:block perspective-1000">
+          <div className="relative mt-16 lg:mt-0 perspective-1000 max-w-2xl mx-auto lg:max-w-none">
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
