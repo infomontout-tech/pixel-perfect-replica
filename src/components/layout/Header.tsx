@@ -16,27 +16,25 @@ const Header = () => {
   const navLinks = [
     { href: '#servicios', label: 'Servicios' },
     { href: '#beneficios', label: 'Beneficios' },
-    { href: '#proyectos', label: 'Proyectos' },
   ];
 
   return (
-    <header 
-      className={`fixed w-full top-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : ''
-      }`}
+    <header
+      className={`fixed w-full top-0 z-50 transition-all duration-500 ${scrolled ? 'bg-background/90 backdrop-blur-md border-b border-border' : ''
+        }`}
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-center h-20">
           <a href="/" className="text-xl font-bold tracking-tight">
             montout<span className="text-primary">.</span>
           </a>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((link) => (
-              <a 
+              <a
                 key={link.href}
-                href={link.href} 
+                href={link.href}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors link-underline py-1"
               >
                 {link.label}
@@ -45,16 +43,18 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:block">
-            <a 
-              href="#contacto" 
+            <a
+              href="https://wa.me/523788856728?text=Hola,%20vi%20la%20promoci%C3%B3n%20de%20desarrollo%20en%207%20d%C3%ADas%20sin%20anticipo.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20mi%20proyecto."
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary text-sm px-6 py-3"
             >
-              Iniciar proyecto
+              Consulta Gratis
             </a>
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Toggle menu"
@@ -69,21 +69,23 @@ const Header = () => {
         <div className="md:hidden bg-background border-t border-border">
           <nav className="flex flex-col p-6 gap-1">
             {navLinks.map((link) => (
-              <a 
+              <a
                 key={link.href}
-                href={link.href} 
-                className="text-muted-foreground hover:text-foreground transition-colors py-3 border-b border-border" 
+                href={link.href}
+                className="text-muted-foreground hover:text-foreground transition-colors py-3 border-b border-border"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <a 
-              href="#contacto" 
+            <a
+              href="https://wa.me/523788856728?text=Hola,%20vi%20la%20promoci%C3%B3n%20de%20desarrollo%20en%207%20d%C3%ADas%20sin%20anticipo.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20mi%20proyecto."
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary text-sm mt-4 text-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              Iniciar proyecto
+              Consulta Gratis sin Compromiso
             </a>
           </nav>
         </div>

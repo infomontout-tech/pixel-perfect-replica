@@ -1,95 +1,182 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Code2, MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import PromoCountdown from '../PromoCountdown';
+import FloatingServiceLabels from '../FloatingServiceLabels';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 pb-20 px-6">
-      <div className="max-w-6xl mx-auto w-full">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-          {/* Left - Main Content */}
+    <section className="relative min-h-screen flex items-center pt-28 pb-20 px-6 overflow-hidden">
+      {/* Background Gradient Blob */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-warm/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+          {/* Left - Content */}
           <div className="space-y-10">
-            <div className="space-y-6">
-              <div className="tag-outlined">
-                Desarrollo web para startups
-              </div>
-              
-              <h1 className="heading-display text-balance">
-                Tu idea.
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-6 text-center lg:text-left"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, duration: 0.4 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-primary/20 text-primary text-sm font-medium mx-auto lg:mx-0"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                Disponible para nuevos proyectos
+              </motion.div>
+
+              <h1 className="heading-display text-balance leading-[1.1]">
+                {["Tu", "Página", "Web."].map((word, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 * i, duration: 0.5 }}
+                    className="inline-block mr-3 text-foreground"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
                 <br />
-                <span className="text-primary">Nuestra ejecución.</span>
+                {["Lista", "en", "7", "Días."].map((word, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 + 0.1 * i, duration: 0.5 }}
+                    className="inline-block mr-3 text-transparent bg-clip-text bg-gradient-to-r from-primary via-brand-accent-soft to-brand-warm animate-gradient-x"
+                  >
+                    {word}
+                  </motion.span>
+                ))}
               </h1>
-              
-              <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
-                Transformamos conceptos en productos digitales funcionales. 
-                SaaS, CRM, e-commerce — entregado en 7 días.
-              </p>
-            </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#contacto" className="btn-primary group">
-                Comenzar proyecto
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href="#servicios" className="btn-ghost">
-                Ver servicios
-              </a>
-            </div>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8, duration: 0.8 }}
+                className="text-xl text-muted-foreground max-w-lg leading-relaxed mx-auto lg:mx-0"
+              >
+                Desarrollamos tu sitio web, tienda online o sistema a medida. <strong>Sin anticipos</strong> y con vista previa antes de pagar.
+              </motion.p>
 
-            {/* Stats */}
-            <div className="pt-10 border-t border-border">
-              <div className="grid grid-cols-3 gap-8">
-                <div>
-                  <div className="stat-number">7</div>
-                  <div className="text-sm text-muted-foreground mt-1">días de entrega</div>
+              <PromoCountdown />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="flex flex-col gap-5"
+            >
+              {/* WhatsApp CTA Button */}
+              <motion.a
+                href="https://wa.me/523788856728?text=Hola,%20vi%20la%20promoci%C3%B3n%20de%20desarrollo%20en%207%20d%C3%ADas%20sin%20anticipo.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20mi%20proyecto."
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="group relative overflow-hidden bg-[#25D366] hover:bg-[#20BA5A] text-white font-bold py-5 px-8 rounded-2xl shadow-2xl transition-all duration-300 flex items-center justify-center gap-3"
+              >
+                <MessageCircle className="w-6 h-6 fill-current" />
+                <div className="flex flex-col items-start">
+                  <span className="text-sm opacity-90">Consulta Gratis sin Compromiso</span>
+                  <span className="text-lg font-black">¡Hablar por WhatsApp!</span>
                 </div>
-                <div>
-                  <div className="stat-number">100%</div>
-                  <div className="text-sm text-muted-foreground mt-1">código tuyo</div>
-                </div>
-                <div>
-                  <div className="stat-number">24/7</div>
-                  <div className="text-sm text-muted-foreground mt-1">soporte</div>
-                </div>
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              </motion.a>
+
+              {/* Trust Bullets */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+                {[
+                  "✓ Sin anticipo - pagas al final",
+                  "✓ Vista previa antes de pagar",
+                  "✓ Solo 7 días de desarrollo",
+                  "✓ 20 cupos disponibles este mes"
+                ].map((bullet, i) => (
+                  <div key={i} className="flex items-center gap-2 text-sm text-foreground/80 font-medium">
+                    <span className="text-primary">{bullet.split(' ')[0]}</span>
+                    <span>{bullet.substring(2)}</span>
+                  </div>
+                ))}
               </div>
-            </div>
+
+            </motion.div>
+
+            {/* Micro Social Proof */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="pt-8 flex items-center gap-6 text-sm text-muted-foreground border-t border-border/50"
+            >
+              <div className="flex -space-x-3">
+                {[
+                  { name: 'TechFlow', color: 'from-blue-500 to-blue-600' },
+                  { name: 'DataHub', color: 'from-purple-500 to-purple-600' },
+                  { name: 'CloudSync', color: 'from-cyan-500 to-cyan-600' },
+                  { name: 'AppNova', color: 'from-indigo-500 to-indigo-600' },
+                  { name: 'DevCore', color: 'from-violet-500 to-violet-600' }
+                ].map((startup, i) => (
+                  <div
+                    key={i}
+                    className={`w-10 h-10 rounded-full border-2 border-background bg-gradient-to-br ${startup.color} flex items-center justify-center text-[10px] font-bold text-white shadow-lg`}
+                    title={startup.name}
+                  >
+                    {startup.name.substring(0, 2).toUpperCase()}
+                  </div>
+                ))}
+              </div>
+              <p>+50 Empresas ya confían en nosotros</p>
+            </motion.div>
           </div>
 
-          {/* Right - Visual */}
-          <div className="relative hidden lg:block">
-            <div className="relative">
-              {/* Main card */}
-              <div className="card-elevated p-8 space-y-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-brand-coral" />
-                    <div className="w-3 h-3 rounded-full bg-brand-warm" />
-                    <div className="w-3 h-3 rounded-full bg-primary" />
-                  </div>
-                  <span className="text-xs text-muted-foreground">montout.dev</span>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="h-4 bg-muted rounded w-3/4" />
-                  <div className="h-4 bg-muted rounded w-1/2" />
-                  <div className="h-32 bg-muted/50 rounded-lg mt-6" />
-                </div>
-                
-                <div className="flex gap-3 pt-4">
-                  <div className="h-10 bg-primary/20 rounded-lg flex-1" />
-                  <div className="h-10 bg-muted rounded-lg flex-1" />
-                </div>
-              </div>
+          {/* Right - Visual Experience */}
+          <div className="relative hidden lg:block perspective-1000">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, type: "spring" }}
+              className="relative z-10"
+            >
+              {/* Hero Image */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
+                <img
+                  src="/hero2.png"
+                  alt="Plataforma Montout"
+                  className="w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-700"
+                />
 
-              {/* Floating accent card */}
-              <div className="absolute -bottom-6 -left-6 card-elevated p-4 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <span className="text-primary text-lg">✓</span>
-                </div>
-                <div>
-                  <div className="text-sm font-medium">Proyecto enviado</div>
-                  <div className="text-xs text-muted-foreground">hace 2 minutos</div>
-                </div>
+                {/* Floating Animated Service Labels */}
+                <FloatingServiceLabels />
+
+                {/* Floating WhatsApp Button */}
+                <motion.a
+                  href="https://wa.me/523788856728?text=Hola,%20vi%20la%20promoci%C3%B3n%20de%20desarrollo%20en%207%20d%C3%ADas%20sin%20anticipo.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20mi%20proyecto."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ repeat: Infinity, duration: 5, delay: 1, ease: "easeInOut" }}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="absolute -right-4 top-10 z-20 flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl border-4 border-white/10 hover:border-white/30 transition-all"
+                  aria-label="Contactar por WhatsApp"
+                >
+                  <MessageCircle className="w-8 h-8 fill-current" />
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-ping" />
+                </motion.a>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

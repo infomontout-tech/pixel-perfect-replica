@@ -1,92 +1,125 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
+    title: "Conecta MT",
+    category: "Corporativo",
+    description: "Plataforma corporativa de alto impacto para servicios tecnológicos. Diseño moderno y optimización SEO completa.",
+    tech: ["React", "TypeScript", "Tailwind"],
+    image: "/conectamt.png",
+    link: "https://conectamt.mx"
+  },
+  {
     title: "Dashboard SaaS",
-    category: "Analytics",
-    description: "Panel de análisis en tiempo real con métricas avanzadas y reportes automatizados.",
-    tech: ["React", "Node.js", "PostgreSQL"],
+    category: "App Web",
+    description: "Panel de control administrativo con visualización de datos en tiempo real y gestión de usuarios.",
+    tech: ["Next.js", "Supabase", "Recharts"],
+    image: "/project_dashboard.svg",
+    link: "#"
   },
   {
-    title: "E-Commerce Tech",
-    category: "Tienda Online",
-    description: "Plataforma con +5,000 productos, pagos integrados y gestión de inventario.",
-    tech: ["Next.js", "Stripe", "MongoDB"],
-  },
-  {
-    title: "CRM Startup",
-    category: "Gestión",
-    description: "Sistema de gestión de clientes con automatización de procesos y analytics.",
-    tech: ["React", "Express", "MySQL"],
+    title: "Lozano Store",
+    category: "E-commerce Completo",
+    description: "Tienda en línea completa con catálogo de productos, carrito de compras y sistema de pagos integrado.",
+    tech: ["Shopify", "Liquid", "JS"],
+    image: "/lozano.png",
+    link: "https://lozanogarzajoyeria.com"
   }
 ];
 
 const Projects = () => {
   return (
     <section id="proyectos" className="relative py-32 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-20">
-          <div className="max-w-2xl">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl"
+          >
             <div className="tag mb-4">Portfolio</div>
             <h2 className="heading-section">
               Proyectos <span className="text-primary">destacados</span>
             </h2>
-          </div>
-          <p className="text-muted-foreground max-w-md lg:text-right">
-            Ejemplos de lo que podemos crear para tu startup.
-          </p>
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-muted-foreground max-w-md lg:text-right text-lg"
+          >
+            Ejemplos reales de transformación digital.
+          </motion.p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div 
+            <motion.a
+              href={project.link}
+              target={project.link !== '#' ? "_blank" : undefined}
+              rel="noopener noreferrer"
               key={index}
-              className="card-interactive p-8 group flex flex-col"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="card-interactive group flex flex-col overflow-hidden p-0 h-full border border-white/5 bg-card/50"
             >
-              {/* Category & Arrow */}
-              <div className="flex items-center justify-between mb-6">
-                <span className="text-xs font-medium text-primary uppercase tracking-wider">
-                  {project.category}
-                </span>
-                <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-              </div>
+              {/* Image Preview */}
+              <div className="aspect-[16/10] overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10 opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                  onError={(e) => {
+                    // Fallback using placeholder if image fails to load (or hasn't been generated yet)
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement.classList.add('bg-muted');
+                  }}
+                />
 
-              {/* Preview placeholder */}
-              <div className="aspect-[4/3] bg-muted/30 rounded-lg mb-6 flex items-center justify-center overflow-hidden">
-                <div className="w-full h-full p-4 space-y-3">
-                  <div className="flex gap-2">
-                    <div className="w-2 h-2 rounded-full bg-brand-coral/50" />
-                    <div className="w-2 h-2 rounded-full bg-brand-warm/50" />
-                    <div className="w-2 h-2 rounded-full bg-primary/50" />
-                  </div>
-                  <div className="space-y-2">
-                    <div className="h-2 bg-muted/50 rounded w-3/4" />
-                    <div className="h-2 bg-muted/50 rounded w-1/2" />
-                  </div>
-                  <div className="h-12 bg-muted/30 rounded mt-4" />
+                {/* Overlay Badge */}
+                <div className="absolute top-4 left-4 z-20">
+                  <span className="text-xs font-bold px-3 py-1 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-white">
+                    {project.category}
+                  </span>
                 </div>
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
-                {project.description}
-              </p>
+              <div className="p-8 flex flex-col flex-grow">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{project.title}</h3>
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-colors">
+                    {project.link !== '#' ? <ExternalLink className="w-5 h-5" /> : <ArrowUpRight className="w-5 h-5" />}
+                  </div>
+                </div>
 
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
-                {project.tech.map((tech, idx) => (
-                  <span 
-                    key={idx}
-                    className="text-xs px-2.5 py-1 bg-muted rounded text-muted-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
+                  {project.description}
+                </p>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
+                  {project.tech.map((tech, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs font-medium px-2.5 py-1 bg-white/5 rounded text-muted-foreground/80"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </motion.a>
           ))}
         </div>
       </div>

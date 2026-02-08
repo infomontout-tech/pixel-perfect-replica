@@ -1,0 +1,59 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="screen_grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.05" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Abstract Background Shapes -->
+  <circle cx="600" cy="100" r="150" fill="#3b82f6" fill-opacity="0.1" filter="url(#glow)" />
+  <circle cx="200" cy="500" r="200" fill="#a855f7" fill-opacity="0.1" filter="url(#glow)" />
+  
+  <!-- Main Device - Laptop/Screen -->
+  <g transform="translate(100, 100)">
+    <!-- Screen Bezel -->
+    <rect x="0" y="0" width="600" height="380" rx="20" fill="#1e293b" stroke="#334155" stroke-width="2" />
+    <!-- Screen Content Area -->
+    <rect x="20" y="20" width="560" height="340" rx="10" fill="url(#screen_grad)" />
+    
+    <!-- Code/Dashboard Elements -->
+    <rect x="50" y="50" width="150" height="100" rx="5" fill="#334155" fill-opacity="0.5" />
+    <rect x="220" y="50" width="330" height="100" rx="5" fill="#334155" fill-opacity="0.5" />
+    
+    <rect x="50" y="170" width="500" height="150" rx="5" fill="#334155" fill-opacity="0.3" />
+    
+    <!-- Floating UI Elements -->
+    <g transform="translate(450, -30)">
+      <rect width="180" height="80" rx="10" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="30" cy="40" r="15" fill="#22c55e" />
+      <rect x="60" y="25" width="90" height="10" rx="2" fill="#94a3b8" />
+      <rect x="60" y="45" width="60" height="10" rx="2" fill="#475569" />
+    </g>
+
+    <g transform="translate(-40, 280)">
+      <rect width="160" height="100" rx="10" fill="#0f172a" stroke="#a855f7" stroke-width="2" />
+      <path d="M20,70 Q 50,30 80,60 T 140,40" fill="none" stroke="#a855f7" stroke-width="3" />
+      <circle cx="140" cy="40" r="5" fill="#a855f7" />
+    </g>
+  </g>
+  
+  <!-- Base -->
+  <path d="M50,500 L750,500 L800,560 L0,560 Z" fill="#334155" opacity="0.5" />
+  
+  <!-- "Magic" particles -->
+  <circle cx="150" cy="150" r="3" fill="#38bdf8" opacity="0.8">
+    <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="650" cy="450" r="4" fill="#a855f7" opacity="0.8">
+    <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" />
+  </circle>
+</svg>
