@@ -37,7 +37,7 @@ const SitePreview = () => {
                     </div>
 
                     {/* Site Content Mockup */}
-                    <div className="relative aspect-video overflow-hidden bg-white text-slate-900 overflow-y-auto custom-scrollbar">
+                    <div className="relative h-[500px] md:aspect-video overflow-hidden bg-white text-slate-900 overflow-y-auto custom-scrollbar">
                         {/* Nav */}
                         <div className="p-4 border-b border-slate-100 flex items-center justify-between sticky top-0 bg-white/80 backdrop-blur-md z-10">
                             <div className="flex items-center gap-2">
@@ -54,26 +54,26 @@ const SitePreview = () => {
                         </div>
 
                         {/* Hero Mockup */}
-                        <div className="p-8 md:p-12 text-center md:text-left grid grid-cols-1 md:grid-cols-2 items-center gap-12 bg-gradient-to-br from-blue-50 to-white">
-                            <div className="space-y-6">
-                                <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight">
+                        <div className="p-6 md:p-12 text-center md:text-left grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-12 bg-gradient-to-br from-blue-50 to-white">
+                            <div className="space-y-4 md:space-y-6">
+                                <h3 className="text-2xl md:text-4xl font-extrabold text-slate-900 leading-tight">
                                     Conecta con el <span className="text-blue-600">Talento Joven</span> de México
                                 </h3>
-                                <p className="text-slate-600">
+                                <p className="text-sm md:text-base text-slate-600">
                                     La plataforma definitiva para que empresas y jóvenes talentos se encuentren de forma efectiva y rápida.
                                 </p>
-                                <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                                    <div className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-blue-200">
-                                        Buscar Empleo <ChevronRight size={18} />
+                                <div className="flex flex-wrap gap-3 justify-center md:justify-start">
+                                    <div className="bg-blue-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-blue-200">
+                                        Buscar Empleo <ChevronRight size={16} />
                                     </div>
-                                    <div className="border border-slate-200 px-6 py-3 rounded-xl font-bold text-slate-700">
+                                    <div className="border border-slate-200 px-5 py-2.5 rounded-xl font-bold text-sm text-slate-700">
                                         Soy Empresa
                                     </div>
                                 </div>
                             </div>
-                            <div className="relative">
+                            <div className="relative mt-8 md:mt-0">
                                 {/* Visual elements representing recruitment */}
-                                <div className="bg-white rounded-2xl shadow-xl p-4 border border-slate-100 space-y-4">
+                                <div className="bg-white rounded-2xl shadow-xl p-4 border border-slate-100 space-y-4 translate-y-0 opacity-100 transition-all duration-700">
                                     {[
                                         { company: "TechNova", role: "Junior Developer", loc: "CDMX", color: "bg-purple-100 text-purple-600" },
                                         { company: "Designly", role: "UI Designer", loc: "Monterrey", color: "bg-pink-100 text-pink-600" },
@@ -94,17 +94,21 @@ const SitePreview = () => {
                                     ))}
                                 </div>
                                 {/* Animated floating stats */}
-                                <div className="absolute -top-6 -right-6 bg-white rounded-xl shadow-lg p-3 border border-slate-100 animate-bounce cursor-default">
+                                <motion.div
+                                    animate={{ y: [0, -10, 0] }}
+                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                                    className="absolute -top-6 -right-4 md:-right-6 bg-white rounded-xl shadow-lg p-3 border border-slate-100 cursor-default z-10"
+                                >
                                     <div className="flex items-center gap-2">
                                         <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                                        <span className="text-xs font-bold text-slate-700">54 postulaciones hoy</span>
+                                        <span className="text-[10px] md:text-xs font-bold text-slate-700">54 postulaciones hoy</span>
                                     </div>
-                                </div>
+                                </motion.div>
                             </div>
                         </div>
 
                         {/* Bottom Bar Mockup */}
-                        <div className="p-8 grid grid-cols-2 md:grid-cols-4 gap-6 bg-white border-t border-slate-50">
+                        <div className="p-6 md:p-8 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 bg-white border-t border-slate-50">
                             {[
                                 { icon: Users, label: "+5k Usuarios", sub: "Talento activo" },
                                 { icon: Building2, label: "+200 Empresas", sub: "Contratando" },
@@ -112,18 +116,18 @@ const SitePreview = () => {
                                 { icon: MapPin, label: "Todo México", sub: "Remoto y presencial" },
                             ].map((stat, i) => (
                                 <div key={i} className="space-y-1">
-                                    <div className="text-blue-600 flex items-center gap-2">
-                                        <stat.icon size={16} />
-                                        <span className="text-sm font-bold text-slate-900">{stat.label}</span>
+                                    <div className="text-blue-600 flex items-center gap-1.5 md:gap-2">
+                                        <stat.icon size={14} />
+                                        <span className="text-[10px] md:text-sm font-bold text-slate-900">{stat.label}</span>
                                     </div>
-                                    <div className="text-[10px] text-slate-400 font-medium uppercase tracking-tight">{stat.sub}</div>
+                                    <div className="text-[8px] md:text-[10px] text-slate-400 font-medium uppercase tracking-tight">{stat.sub}</div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Overlay to encourage CTA */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-12 pointer-events-none md:pointer-events-auto">
+                    {/* Overlay to encourage CTA (Desktop) */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 hidden md:flex items-end justify-center pb-12">
                         <a
                             href="https://conectamt.mx"
                             target="_blank"
@@ -134,6 +138,18 @@ const SitePreview = () => {
                         </a>
                     </div>
                 </motion.div>
+
+                {/* Direct Mobile Button */}
+                <div className="mt-8 flex justify-center md:hidden">
+                    <a
+                        href="https://conectamt.mx"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary flex items-center gap-2 px-8 py-4 shadow-lg active:scale-95 transition-transform"
+                    >
+                        Ver Página Real <ChevronRight size={18} />
+                    </a>
+                </div>
             </div>
         </section>
     );
