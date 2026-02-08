@@ -25,7 +25,12 @@ const Header = () => {
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-center h-20">
-          <a href="/" className="text-xl font-bold tracking-tight">
+          <a
+            href="https://wa.me/523788856728?text=Hola,%20vi%20la%20promoci%C3%B3n%20de%20desarrollo%20en%207%20d%C3%ADas%20sin%20anticipo.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20mi%20proyecto."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl font-bold tracking-tight"
+          >
             montout<span className="text-primary">.</span>
           </a>
 
