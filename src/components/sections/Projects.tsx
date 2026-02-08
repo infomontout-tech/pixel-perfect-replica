@@ -1,5 +1,8 @@
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
+import conectaImg from '@/assets/conectamt.png';
+import dashboardImg from '@/assets/project_dashboard.svg';
+import lozanoImg from '@/assets/lozano.png';
 
 const projects = [
   {
@@ -7,7 +10,7 @@ const projects = [
     category: "Corporativo",
     description: "Plataforma corporativa de alto impacto para servicios tecnológicos. Diseño moderno y optimización SEO completa.",
     tech: ["React", "TypeScript", "Tailwind"],
-    image: `${import.meta.env.BASE_URL}conectamt.png`,
+    image: conectaImg,
     link: "https://conectamt.mx"
   },
   {
@@ -15,7 +18,7 @@ const projects = [
     category: "App Web",
     description: "Panel de control administrativo con visualización de datos en tiempo real y gestión de usuarios.",
     tech: ["Next.js", "Supabase", "Recharts"],
-    image: `${import.meta.env.BASE_URL}project_dashboard.svg`,
+    image: dashboardImg,
     link: "#"
   },
   {
@@ -23,7 +26,7 @@ const projects = [
     category: "E-commerce Completo",
     description: "Tienda en línea completa con catálogo de productos, carrito de compras y sistema de pagos integrado.",
     tech: ["Shopify", "Liquid", "JS"],
-    image: `${import.meta.env.BASE_URL}lozano.png`,
+    image: lozanoImg,
     link: "https://lozanogarzajoyeria.com"
   }
 ];

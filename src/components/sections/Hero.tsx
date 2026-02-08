@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle2, Code2, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import PromoCountdown from '../PromoCountdown';
 import FloatingServiceLabels from '../FloatingServiceLabels';
+import heroImage from '@/assets/hero2.png';
 
 const Hero = () => {
   return (
@@ -152,7 +153,7 @@ const Hero = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
                 <img
-                  src={`${import.meta.env.BASE_URL}hero2.png`}
+                  src={heroImage}
                   alt="Plataforma Montout"
                   className="w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-700"
                 />
