@@ -7,7 +7,7 @@ const projects = [
     category: "Corporativo",
     description: "Plataforma corporativa de alto impacto para servicios tecnológicos. Diseño moderno y optimización SEO completa.",
     tech: ["React", "TypeScript", "Tailwind"],
-    image: "/conectamt.png",
+    image: `${import.meta.env.BASE_URL}conectamt.png`,
     link: "https://conectamt.mx"
   },
   {
@@ -15,7 +15,7 @@ const projects = [
     category: "App Web",
     description: "Panel de control administrativo con visualización de datos en tiempo real y gestión de usuarios.",
     tech: ["Next.js", "Supabase", "Recharts"],
-    image: "/project_dashboard.svg",
+    image: `${import.meta.env.BASE_URL}project_dashboard.svg`,
     link: "#"
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     category: "E-commerce Completo",
     description: "Tienda en línea completa con catálogo de productos, carrito de compras y sistema de pagos integrado.",
     tech: ["Shopify", "Liquid", "JS"],
-    image: "/lozano.png",
+    image: `${import.meta.env.BASE_URL}lozano.png`,
     link: "https://lozanogarzajoyeria.com"
   }
 ];

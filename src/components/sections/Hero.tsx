@@ -152,7 +152,7 @@ const Hero = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
                 <img
-                  src="/hero2.png"
+                  src={`${import.meta.env.BASE_URL}hero2.png`}
                   alt="Plataforma Montout"
                   className="w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-700"
                 />
