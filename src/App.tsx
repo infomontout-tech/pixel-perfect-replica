@@ -15,7 +15,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <FloatingWhatsApp />
-      <BrowserRouter>
+      <BrowserRouter basename="/pixel-perfect-replica">
         <Routes>
           <Route path="/" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
