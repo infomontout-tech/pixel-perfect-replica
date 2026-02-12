@@ -1,4 +1,4 @@
-import { Code, ShoppingCart, Lightbulb, ArrowUpRight, ArrowRight } from 'lucide-react';
+import { Code, ShoppingCart, Lightbulb, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const services = [
@@ -29,6 +29,21 @@ const services = [
 ];
 
 const Services = () => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
     <section id="servicios" className="relative py-32 px-6 bg-surface-elevated/30 overflow-hidden">
       {/* Background Decor */}
@@ -65,18 +80,21 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-6">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid gap-6"
+        >
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.01 }}
+              variants={item}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
               className="group relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
 
               <div className="glass-card p-8 md:p-10 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
                 <div className="flex flex-col lg:flex-row lg:items-center gap-8 md:gap-12">
@@ -110,7 +128,7 @@ const Services = () => {
                       {service.features.slice(0, 3).map((feature, idx) => (
                         <span
                           key={idx}
-                          className="text-xs font-medium px-3 py-1.5 bg-background/50 border border-white/5 rounded-full text-muted-foreground"
+                          className="text-xs font-medium px-3 py-1.5 bg-background/50 border border-white/5 rounded-full text-muted-foreground group-hover:bg-background/80 transition-colors"
                         >
                           {feature}
                         </span>
@@ -132,7 +150,7 @@ const Services = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

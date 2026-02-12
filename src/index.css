@@ -76,6 +76,10 @@
   html {
     scroll-behavior: smooth;
   }
+
+  .will-change-transform {
+    will-change: transform;
+  }
 }
 
 @layer components {

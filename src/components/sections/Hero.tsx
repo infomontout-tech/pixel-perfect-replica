@@ -5,11 +5,50 @@ import FloatingServiceLabels from '../FloatingServiceLabels';
 import heroImage from '@/assets/hero2.png';
 
 const Hero = () => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center pt-28 pb-20 px-6 overflow-hidden">
       {/* Background Gradient Blob */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-warm/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
+      <motion.div
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none will-change-transform"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.3, 0.6, 0.3],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+        className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-warm/10 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3 pointer-events-none will-change-transform"
+      />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -17,15 +56,13 @@ const Hero = () => {
           {/* Left - Content */}
           <div className="space-y-10">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              variants={container}
+              initial="hidden"
+              animate="show"
               className="space-y-6 text-center lg:text-left"
             >
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.4 }}
+                variants={item}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border-primary/20 text-primary text-sm font-medium mx-auto lg:mx-0"
               >
                 <span className="relative flex h-2 w-2">
@@ -39,9 +76,7 @@ const Hero = () => {
                 {["Tu", "Página", "Web."].map((word, i) => (
                   <motion.span
                     key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * i, duration: 0.5 }}
+                    variants={item}
                     className="inline-block mr-3 text-foreground"
                   >
                     {word}
@@ -51,9 +86,7 @@ const Hero = () => {
                 {["Lista", "en", "7", "Días."].map((word, i) => (
                   <motion.span
                     key={i}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.3 + 0.1 * i, duration: 0.5 }}
+                    variants={item}
                     className="inline-block mr-3 text-transparent bg-clip-text bg-gradient-to-r from-primary via-brand-accent-soft to-brand-warm animate-gradient-x"
                   >
                     {word}
@@ -62,21 +95,22 @@ const Hero = () => {
               </h1>
 
               <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
+                variants={item}
                 className="text-xl text-muted-foreground max-w-lg leading-relaxed mx-auto lg:mx-0"
               >
                 Desarrollamos tu sitio web, tienda online o sistema a medida. <strong>Sin anticipos</strong> y con vista previa antes de pagar.
               </motion.p>
 
-              <PromoCountdown />
+              {/* Countdown is separate to avoid frequent re-renders affecting text */}
+              <motion.div variants={item}>
+                <PromoCountdown />
+              </motion.div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.5 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
               className="flex flex-col gap-5"
             >
               {/* WhatsApp CTA Button */}
@@ -117,7 +151,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.5 }}
+              transition={{ delay: 1, duration: 0.5 }}
               className="pt-8 flex items-center gap-6 text-sm text-muted-foreground border-t border-border/50"
             >
               <div className="flex -space-x-3">
@@ -144,18 +178,18 @@ const Hero = () => {
           {/* Right - Visual Experience */}
           <div className="relative mt-16 lg:mt-0 perspective-1000 max-w-2xl mx-auto lg:max-w-none">
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, type: "spring" }}
+              initial={{ opacity: 0, x: 50, rotateY: -10 }}
+              animate={{ opacity: 1, x: 0, rotateY: 0 }}
+              transition={{ duration: 1, type: "spring", stiffness: 50 }}
               className="relative z-10"
             >
               {/* Hero Image */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
+              <div className="relative group">
+                <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full pointer-events-none transition-all duration-700 group-hover:bg-primary/30" />
                 <img
                   src={heroImage}
                   alt="Plataforma Montout"
-                  className="w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-700"
+                  className="w-full h-auto drop-shadow-2xl hover:scale-[1.02] transition-transform duration-700 will-change-transform"
                 />
 
                 {/* Floating Animated Service Labels */}
@@ -166,10 +200,10 @@ const Hero = () => {
                   href="https://wa.me/523788856728?text=Hola,%20vi%20la%20promoci%C3%B3n%20de%20desarrollo%20en%207%20d%C3%ADas%20sin%20anticipo.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20mi%20proyecto."
                   target="_blank"
                   rel="noopener noreferrer"
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{ repeat: Infinity, duration: 5, delay: 1, ease: "easeInOut" }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
                   className="absolute -right-4 top-10 z-20 flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl border-4 border-white/10 hover:border-white/30 transition-all"
                   aria-label="Contactar por WhatsApp"
                 >
