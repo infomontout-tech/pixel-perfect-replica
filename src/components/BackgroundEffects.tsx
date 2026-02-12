@@ -106,22 +106,22 @@ const BackgroundEffects = () => {
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full opacity-50"
+        className="absolute inset-0 w-full h-full opacity-80"
       />
 
       {/* Subtle grid overlay */}
-      <div className="absolute inset-0 bg-grid-subtle opacity-10" />
+      <div className="absolute inset-0 bg-grid-subtle opacity-15" />
 
       {/* Top gradient fade */}
       <div className="absolute top-0 left-0 right-0 h-[600px] gradient-fade-t opacity-40" />
 
       {/* Decorative Glows */}
       <div
-        className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-[0.04]"
+        className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full opacity-[0.20]"
         style={{ background: 'radial-gradient(circle, hsl(175 84% 52%) 0%, transparent 70%)' }}
       />
       <div
-        className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-[0.03]"
+        className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full opacity-[0.15]"
         style={{ background: 'radial-gradient(circle, hsl(35 90% 55%) 0%, transparent 70%)' }}
       />
     </div>
