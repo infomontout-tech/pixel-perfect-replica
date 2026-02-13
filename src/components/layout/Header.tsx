@@ -26,7 +26,7 @@ const Header = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-center h-20">
           <a
-            href="https://wa.me/523788856728?text=Hola,%20vi%20la%20promoci%C3%B3n%20de%20desarrollo%20en%207%20d%C3%ADas%20sin%20anticipo.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20mi%20proyecto."
+            href="https://wa.me/17128882206?text=Hola%20estoy%20interesado%20en%20mi%20desarrollo%20web"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xl font-bold tracking-tight"
@@ -49,7 +49,7 @@ const Header = () => {
 
           <div className="hidden md:block">
             <a
-              href="https://wa.me/523788856728?text=Hola,%20vi%20la%20promoci%C3%B3n%20de%20desarrollo%20en%207%20d%C3%ADas%20sin%20anticipo.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20mi%20proyecto."
+              href="https://wa.me/17128882206?text=Hola%20estoy%20interesado%20en%20mi%20desarrollo%20web"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary text-sm px-6 py-3"
@@ -84,7 +84,7 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="https://wa.me/523788856728?text=Hola,%20vi%20la%20promoci%C3%B3n%20de%20desarrollo%20en%207%20d%C3%ADas%20sin%20anticipo.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20mi%20proyecto."
+              href="https://wa.me/17128882206?text=Hola%20estoy%20interesado%20en%20mi%20desarrollo%20web"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary text-sm mt-4 text-center"

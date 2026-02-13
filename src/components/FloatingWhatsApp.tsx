@@ -23,7 +23,7 @@ const FloatingWhatsApp = () => {
         <AnimatePresence>
             {isVisible && (
                 <motion.a
-                    href="https://wa.me/5211234567890" // Replace with actual number
+                    href="https://wa.me/17128882206?text=Hola%20estoy%20interesado%20en%20mi%20desarrollo%20web" // Replace with actual number
                     target="_blank"
                     rel="noopener noreferrer"
                     initial={{ scale: 0, opacity: 0 }}

@@ -35,7 +35,7 @@ const Footer = () => {
               <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Contacto</span>
               <div className="flex flex-col gap-2">
                 <a
-                  href="https://wa.me/523788856728"
+                  href="https://wa.me/17128882206?text=Hola%20estoy%20interesado%20en%20mi%20desarrollo%20web"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"

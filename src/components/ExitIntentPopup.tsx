@@ -61,7 +61,7 @@ const ExitIntentPopup = ({ onClose }: ExitIntentPopupProps) => {
                         </div>
 
                         <a
-                            href="https://wa.me/523788856728?text=Hola%20Montout,%20quiero%20agendar%20mi%20consultoría%20GRATIS"
+                            href="https://wa.me/17128882206?text=Hola%20estoy%20interesado%20en%20mi%20desarrollo%20web"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block w-full btn-primary py-4 text-lg mb-4 hover:shadow-lg hover:shadow-primary/20"

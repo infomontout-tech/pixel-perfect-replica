@@ -218,7 +218,7 @@ const EverythingWeDevelop = () => {
                                             </div>
 
                                             <a
-                                                href={`https://wa.me/523788856728?text=Hola,%20vi%20la%20promoci%C3%B3n%20de%20desarrollo%20en%207%20d%C3%ADas%20sin%20anticipo.%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20${encodeURIComponent(service.title)}.`}
+                                                href="https://wa.me/17128882206?text=Hola%20estoy%20interesado%20en%20mi%20desarrollo%20web"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="btn-primary w-full py-4 flex items-center justify-center gap-3 group/btn shadow-lg"

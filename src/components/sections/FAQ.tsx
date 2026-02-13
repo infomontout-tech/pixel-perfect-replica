@@ -88,7 +88,7 @@ const FAQ = () => {
                     <p className="text-muted-foreground mb-4">¿No encuentras tu respuesta?</p>
 
                     <a
-                        href="https://wa.me/523788856728?text=Hola,%20tengo%20una%20pregunta"
+                        href="https://wa.me/17128882206?text=Hola%20estoy%20interesado%20en%20mi%20desarrollo%20web"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-full font-semibold transition-all group"
